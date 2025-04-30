@@ -16,3 +16,38 @@
     <button id="choose-manager">Manager</button>
   </section>
 
+  <!-- OPERATOR VIEW: Vehicle checklists -->
+  <section id="operator-view" class="view hidden">
+    <h2>Daily Checklist</h2>
+    
+    <!-- Vehicle selection -->
+    <label for="vehicle-select">Select vehicle:</label>
+    <select id="vehicle-select">
+      <option value="">-- Choose a vehicle --</option>
+      <!-- Options will be populated by JavaScript -->
+    </select>
+
+    <!-- Checklist items -->
+    <form id="checklist-form">
+      <!-- Checklist items injected via JavaScript -->
+    </form>
+
+    <!-- Confirmation area -->
+    <div id="confirmation-message" class="hidden">
+      <h3>✅ Vehicle is ready for use</h3>
+    </div>
+  </section>
+
+ 
+
+  <footer id="footer">
+    copy& 2025 MachineReady
+  </footer>
+
+  <!-- Scripts -->
+  <script type="module" src="../assets/js/main.js"></script>
+  <script type="module" src="../assets/js/start.js"></script>
+  <script type="module" src="../assets/js/operator.js"></script>
+  <script type="module" src="../assets/js/manager.js"></script>
+</body>
+</html>
