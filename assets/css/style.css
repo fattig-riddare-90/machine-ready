@@ -1,1 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Zen+Dots&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gasoek+One&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
+h1 {
+    font-family: "Gasoek One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: xx-large;
+    letter-spacing: 0.2rem;
+}
+
+body {
+    font-family: "Nunito Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.hidden {
+    display: none;
+}
