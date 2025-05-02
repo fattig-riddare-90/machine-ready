@@ -12,13 +12,19 @@ document.getElementById("choose-manager").addEventListener("click", () => {
     showManagerView();
 });
 
+// Function to hide the role selection on the start screen
+
 function hideRoleSelect() {
     document.getElementById("start-screen").classList.add("hidden");
 };
 
+// Function to show the operator view
+
 function showOperatorView() {
     document.getElementById("operator-view").classList.remove("hidden");
 };
+
+// Function to show the manager view
 
 function showManagerView() {
     document.getElementById("manager-view").classList.remove("hidden");
