@@ -32,9 +32,15 @@
     </select>
 
     <!-- Checklist items -->
-    <form id="checklist-form">
+    <form id="checklist-form" class="hidden">
       <!-- Checklist items injected via JavaScript -->
     </form>
+
+    <!-- Signature area -->
+    <div id="operator-name-section" class="hidden">
+      <label for="operator-name">Enter your name:</label>
+      <input type="text" id="operator-name" name="operator-name" required />
+    </div>
 
     <!-- Confirmation area -->
     <div id="confirmation-message" class="hidden">
