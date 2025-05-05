@@ -9,7 +9,7 @@ vehicles.forEach((vehicle) => {
   selectElement.appendChild(option);
 });
 
-// Checklist form
+// Checklist form (taken from makula.io)
 
 const checklistItems = [
   {
