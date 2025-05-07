@@ -155,28 +155,42 @@ const nameSection = document.getElementById("operator-name-section");
 // To require name sign before submit
 
 form.addEventListener("submit", (e) => {
-  e.preventDefault();
-
-  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-  const allChecked = Array.from(checkboxes).every(cb => cb.checked);
-  if (!allChecked) {
-    console.log("error");
-  } else {
-    // Show confirmation message and hide form
-
-    document.getElementById("confirmation-message").classList.remove("hidden");
-    document.querySelector("#operator-view h2").classList.add("hidden");
-    document.getElementById("vehicle-select").classList.add("hidden");
-    document.getElementById('checklist-form').classList.add('hidden');
-    document.getElementById('submit-button').classList.add('hidden');
-  }
-
-
-  // const nameInput = document.getElementById("operator-name").value.trim();
-  // if (nameInput === "") {
-  //   alert("Please enter your name before submitting.");
-  //   return;
-  // }
-
+    e.preventDefault();
   
-});
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    const allChecked = Array.from(checkboxes).every(cb => cb.checked);
+  
+    if (!allChecked) {
+      console.log("error");
+    } else {
+      // Get signature and chosen vehicle 
+      const signature = document.getElementById("operator-name").value;
+      const selectedVehicle = document.getElementById("vehicle-select").value;
+  
+      // Get checklist data
+      const checklistResults = {};
+      checkboxes.forEach(cb => {
+        checklistResults[cb.id] = cb.checked;
+      });
+  
+      // Create form post
+      const entry = {
+        vehicle: selectedVehicle,
+        timestamp: new Date().toISOString(),
+        signature,
+        checklist: checklistResults
+      };
+  
+      // Save to localStorage
+      const existingData = JSON.parse(localStorage.getItem("submittedForms")) || [];
+      existingData.push(entry);
+      localStorage.setItem("submittedForms", JSON.stringify(existingData));
+  
+      // Show confirmation and hide form
+      document.getElementById("confirmation-message").classList.remove("hidden");
+      document.querySelector("#operator-view h2").classList.add("hidden");
+      document.getElementById("vehicle-select").classList.add("hidden");
+      document.getElementById('checklist-form').classList.add('hidden');
+      document.getElementById('submit-button').classList.add('hidden');
+    }
+  });
