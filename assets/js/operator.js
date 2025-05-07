@@ -162,8 +162,13 @@ form.addEventListener("submit", (e) => {
   if (!allChecked) {
     console.log("error");
   } else {
-    // Show confirmation message
+    // Show confirmation message and hide form
+
     document.getElementById("confirmation-message").classList.remove("hidden");
+    document.querySelector("#operator-view h2").classList.add("hidden");
+    document.getElementById("vehicle-select").classList.add("hidden");
+    document.getElementById('checklist-form').classList.add('hidden');
+    document.getElementById('submit-button').classList.add('hidden');
   }
 
 

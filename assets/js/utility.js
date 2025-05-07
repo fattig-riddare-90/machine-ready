@@ -6,7 +6,8 @@ export const vehicles = [
     { id: "tractor01", name: "Tractor 01" },
     { id: "forklift01", name: "Forklift 01" }
   ];
-  export const backToRoleButton = document.getElementById("back-to-role");
+  
+export const backToRoleButton = document.getElementById("back-to-role");
 
   backToRoleButton.addEventListener("click", () => {
     location.reload();
