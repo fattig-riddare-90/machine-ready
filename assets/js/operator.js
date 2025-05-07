@@ -11,10 +11,52 @@ let selectedVehicleChecklistItems = [];
 
 const checklistItems = [
   {
+    id: "start",
+    label:
+        "Twist the ignition key and start up the engine, listen for noise and watch for black or white smoke",
+    vehicles: ["truck01","excavator01","tractor01", "forklift01"]
+    },
+   {
+    id: "tire-check",
+    label:
+        "Check for wear, damage and flats, strike each tire with a hammer to make sure it is pressurized",
+    vehicles: ["truck01","excavator01","tractor01", "forklift01"]
+    },
+  {
+    id: "lights",
+    label:
+        "Check all exterior light sources including auxillary work light and rotating beacons",
+    vehicles: ["truck01","excavator01","tractor01", "forklift01"]
+  },
+  {
+    id: "breaks",
+    label:
+        "Check the breaks including parking break",
+    vehicles: ["excavator01","tractor01", "forklift01"]
+  },
+  {
+    id: "steering",
+    label:
+        "Turn steering to the end-ranges in both directions, should be smooth motion without any apparent noise",
+    vehicles: ["truck01","excavator01","tractor01", "forklift01"]
+  },
+  {
+    id: "pneumatic-breaks1",
+    label:
+      "While parked, completely empty break system of air and wait for it to refill",
+    vehicles: ["truck01"]
+  },
+  {
+    id: "pneumatic-breaks2",
+    label:
+      "While parked, hold the break pedal down and make sure the air pressure is not decreasing further.",
+    vehicles: ["truck01"]
+  },
+  {
     id: "clean-surfaces",
     label:
       "Inspect and clean machine surfaces and components: Remove dust, loose debris, and contaminants to prevent interference with machine operations.",
-    vehicles: ["truck01","excavator01","forklift01"]
+    vehicles: ["excavator01","forklift01"]
   },
   {
     id: "lubrication",
@@ -23,28 +65,16 @@ const checklistItems = [
       vehicles: ["excavator01","forklift01"]
   },
   {
-    id: "safety-guards",
-    label:
-      "Verify all safety guards are in place and functional: Confirm that safety guards are secure and not damaged.",
-      vehicles: ["truck01","excavator01"]
-  },
-  {
     id: "emergency-stop",
     label:
       "Test emergency stop buttons and other safety features: Ensure that all emergency stops and safety interlocks are working correctly.",
-      vehicles: ["truck01","excavator01"]
-  },
-  {
-    id: "electrical",
-    label:
-      "Check electrical connections: Inspect cables and connections for signs of wear or damage.",
-      vehicles: ["truck01"]
+      vehicles: ["truck01","excavator01","tractor01", "forklift01"]
   },
   {
     id: "moving-parts",
     label:
       "Ensure all moving parts are operating smoothly and without unusual noise: Listen for unusual sounds that could indicate a problem.",
-      vehicles: ["truck01","excavator01","tractor01","forklift01"]
+      vehicles: ["excavator01", "forklift01"]
   },
   {
     id: "belts-chains",
@@ -56,25 +86,25 @@ const checklistItems = [
     id: "fluids",
     label:
       "Examine hydraulic and pneumatic systems for leaks: Check hoses, valves, and seals.",
-      vehicles: ["truck01"]
+      vehicles: ["truck01", "excavator01", "tractor01", "forklift01"]
   },
   {
     id: "temperature",
     label:
       "Monitor system temperatures: Ensure cooling systems are functioning and that operating temperatures are within normal ranges.",
-      vehicles: ["excavator01"]
+      vehicles: ["truck01", "excavator01", "tractor01", "forklift01"]
   },
   {
     id: "vibration",
     label:
       "Check for vibration or alignment issues: Inspect machine alignment and secure any loose components.",
-      vehicles: ["tractor01"]
+      vehicles: ["forklift01"]
   },
   {
     id: "record",
     label:
       "Record any issues or anomalies observed: Document any irregularities or maintenance actions taken for future reference.",
-      vehicles: ["forklift01"]
+      vehicles: ["truck01", "excavator01", "tractor01", "forklift01"]
   },
 ];
 
@@ -105,32 +135,19 @@ selectElement.addEventListener("change", function() {
 
 
 function generateChecklist() {
-  formChecklist.innerHTML = ""; // Clear if anything is already in the form
-  selectedVehicleChecklistItems.forEach((item) => {
-
-    // const checkbox = document.createElement("input");
-    // checkbox.type = "checkbox";
-    // checkbox.id = item.id;
-    // checkbox.name = item.id;
-
-    // const label = document.createElement("label");
-    // label.htmlFor = item.id;
-    // label.textContent = item.label;
-    // checkbox.required = true;
-
-    // formChecklist.appendChild(checkbox);
-    // formChecklist.appendChild(label);
-
-    formChecklist.innerHTML += `
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" id="${item.id}" name="${item.id}" required>
-      <label class="form-check-label" for="${item.id}">
-        ${item.label}
-      </label>
-    </div>
-    `;
-  });
-}
+    formChecklist.innerHTML = ""; // Töm formuläret
+  
+    selectedVehicleChecklistItems.forEach((item, index) => {
+      const isEvenRow = index % 2 === 1;
+  
+      formChecklist.innerHTML += `
+        <div class="form-check d-flex align-items-center gap-2 py-2 px-3" style="background-color: ${isEvenRow ? '#cc0000' : 'transparent'};">
+          <input class="form-check-input larger-checkbox" type="checkbox" id="${item.id}" name="${item.id}" required>
+          <label class="form-check-label m-0" for="${item.id}">${item.label}</label>
+        </div>
+      `;
+    });
+  }
 
 // Hide form until vehicle is selected
 const nameSection = document.getElementById("operator-name-section");
