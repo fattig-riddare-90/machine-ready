@@ -1,3 +1,5 @@
+import { backToRoleButton } from "./utility.js";
+
 // Event listener to change to operator view
 
 document.getElementById("choose-operator").addEventListener("click", () => {
@@ -22,10 +24,12 @@ function hideRoleSelect() {
 
 function showOperatorView() {
     document.getElementById("operator-view").classList.remove("hidden");
+    backToRoleButton.classList.remove("hidden");
 };
 
 // Function to show the manager view
 
 function showManagerView() {
     document.getElementById("manager-view").classList.remove("hidden");
+    backToRoleButton.classList.remove("hidden");
 }

@@ -7,7 +7,7 @@ let formChecklist = document.getElementById("checklist-items");
 let selectedVehicle;
 let selectedVehicleChecklistItems = [];
 
-// Checklist form (taken from https://www.makula.io/blog/daily-maintenance-checklist-for-machines#h3)
+// Checklist form (partly taken from https://www.makula.io/blog/daily-maintenance-checklist-for-machines#h3)
 
 const checklistItems = [
   {
@@ -135,7 +135,7 @@ selectElement.addEventListener("change", function() {
 
 
 function generateChecklist() {
-    formChecklist.innerHTML = ""; // Töm formuläret
+    formChecklist.innerHTML = ""; // Empty form
   
     selectedVehicleChecklistItems.forEach((item, index) => {
       const isEvenRow = index % 2 === 1;
