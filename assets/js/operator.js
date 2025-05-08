@@ -1,5 +1,8 @@
 /* jshint esversion: 11 */
 
+// Imported functions
+import { populateVehicleSelect } from "./utility.js";
+
 import { vehicles } from "./utility.js";
 
 const form = document.getElementById("checklist-form");
@@ -108,14 +111,10 @@ const checklistItems = [
   },
 ];
 
-// Populate the vehicle select dropdown for the operator view
 const selectElement = document.getElementById("vehicle-select");
-vehicles.forEach((vehicle) => {
-  const option = document.createElement("option");
-  option.value = vehicle.id;
-  option.textContent = vehicle.name;
-  selectElement.appendChild(option);
-});
+
+// Populate the select drop list
+populateVehicleSelect("vehicle-select", "manager-vehicle-select");
 
 selectElement.addEventListener("change", function() {
 
@@ -191,6 +190,5 @@ form.addEventListener("submit", (e) => {
       document.querySelector("#operator-view h2").classList.add("hidden");
       document.getElementById("vehicle-select").classList.add("hidden");
       document.getElementById('checklist-form').classList.add('hidden');
-      document.getElementById('submit-button').classList.add('hidden');
     }
   });
