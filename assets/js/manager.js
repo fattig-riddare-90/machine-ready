@@ -21,7 +21,19 @@ function renderHistoryForVehicle(vehicleName) {
     historyContainer.innerHTML = ""; // Empty previous
   
     const submissions = JSON.parse(localStorage.getItem("submittedForms")) || [];
-    const vehicleEntries = submissions
+  
+    const now = new Date();
+    const thirtyDaysAgo = new Date(now.setDate(now.getDate() - 30));
+  
+    // Filter only the latest 30 days
+    const recentSubmissions = submissions.filter(entry =>
+      new Date(entry.timestamp) >= thirtyDaysAgo
+    );
+  
+    // Update localStorage
+    localStorage.setItem("submittedForms", JSON.stringify(recentSubmissions));
+  
+    const vehicleEntries = recentSubmissions
       .filter(entry => entry.vehicle === vehicleName)
       .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp)); // Newest first
   
