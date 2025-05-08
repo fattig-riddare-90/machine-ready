@@ -18,36 +18,32 @@ if (managerSelect) {
 
 function renderHistoryForVehicle(vehicleName) {
     const historyContainer = document.getElementById("history-list");
-    historyContainer.innerHTML = ""; // Töm tidigare lista
+    historyContainer.innerHTML = ""; // Empty previous
   
     const submissions = JSON.parse(localStorage.getItem("submittedForms")) || [];
-    const vehicleEntries = submissions.filter(entry => entry.vehicle === vehicleName);
+    const vehicleEntries = submissions
+      .filter(entry => entry.vehicle === vehicleName)
+      .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp)); // Newest first
   
     if (vehicleEntries.length === 0) {
       historyContainer.innerHTML = "<p>No previous submissions for this vehicle.</p>";
       return;
     }
   
-    vehicleEntries.slice().reverse().forEach(entry => {
+    vehicleEntries.forEach(entry => {
       const entryDiv = document.createElement("div");
       entryDiv.classList.add("history-entry");
   
+      const date = new Date(entry.timestamp).toLocaleString("sv-SE", {
+        dateStyle: "short",
+        timeStyle: "short"
+      });
+  
       const dateP = document.createElement("p");
-      dateP.textContent = `Date: ${new Date(entry.timestamp).toLocaleDateString()} | Signature: ${entry.signature}`;
+      dateP.textContent = `Datum: ${date} | Signatur: ${entry.signature} ✅`;
+      dateP.style.fontWeight = "bold";
+  
       entryDiv.appendChild(dateP);
-  
-      const checklistUl = document.createElement("ul");
-  
-      // Kontrollera om checklist är ett objekt och iterera över nycklarna
-      if (typeof entry.checklist === "object") {
-        Object.keys(entry.checklist).forEach(key => {
-          const li = document.createElement("li");
-          li.textContent = `${key}: ${entry.checklist[key] ? 'Checked' : 'Not checked'}`;
-          checklistUl.appendChild(li);
-        });
-      }
-  
-      entryDiv.appendChild(checklistUl);
       historyContainer.appendChild(entryDiv);
     });
   }
