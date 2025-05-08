@@ -28,7 +28,7 @@ function renderHistoryForVehicle(vehicleName) {
       return;
     }
   
-    vehicleEntries.forEach(entry => {
+    vehicleEntries.slice().reverse().forEach(entry => {
       const entryDiv = document.createElement("div");
       entryDiv.classList.add("history-entry");
   
