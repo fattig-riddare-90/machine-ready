@@ -55,34 +55,6 @@ section {
   font-size: 1.5rem;
 }
 
-/* button {
-  background-color: #ff0000;
-  border: none;
-  padding: 0.6rem 1.2rem;
-  margin: 0.5rem;
-  color: white;
-  border-radius: 0.4rem;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #cc0000;
-}
-
-#back-to-role {
-  display: block;
-  margin: 20px auto;
-  background-color: #cc0000;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 1.5rem;
-  text-align: center;
-} */
-
 select,
 input[type="text"] {
   width: 100%;
@@ -182,6 +154,16 @@ footer {
 
 /* Responsive layout */
 @media (max-width: 991px) {
+
+  #page-info-text {
+    width: 100%;
+    margin: 0 auto; 
+    padding-top: 25px;
+    box-sizing: border-box;
+    display: block;
+    font-size: 1.2rem;
+  }
+
   form,
   #vehicle-select,
   #manager-vehicle-select,
