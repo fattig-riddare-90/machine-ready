@@ -46,6 +46,15 @@ section {
   color: #ccc;
 }
 
+#page-info-text {
+  width: 50%;
+  margin: 0 auto; /* centrerar */
+  padding-top: 25px;
+  box-sizing: border-box;
+  display: block; /* säkerställer blockbeteende */
+  font-size: 1.5rem;
+}
+
 /* button {
   background-color: #ff0000;
   border: none;
