@@ -189,6 +189,7 @@ form.addEventListener("submit", (e) => {
       document.getElementById("confirmation-message").classList.remove("hidden");
       document.querySelector("#operator-view h2").classList.add("hidden");
       document.getElementById("vehicle-select").classList.add("hidden");
+      document.getElementById("label-vehicle-select").classList.add("hidden");
       document.getElementById('checklist-form').classList.add('hidden');
     }
   });
