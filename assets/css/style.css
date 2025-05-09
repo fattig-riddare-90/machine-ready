@@ -171,11 +171,6 @@ footer {
   height: 1.5em;
 }
 
-/* Hide elements with class 'hidden' */
-.hidden {
-  display: none !important;
-}
-
 /* Responsive layout */
 @media (max-width: 991px) {
   form,
@@ -191,3 +186,10 @@ footer {
     text-align: center;
   }
 }
+
+/* Hide elements with class 'hidden' */
+.hidden {
+  display: none !important;
+}
+
+

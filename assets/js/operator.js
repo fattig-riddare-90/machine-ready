@@ -132,7 +132,57 @@ selectElement.addEventListener("change", function() {
   }
 });
 
+// Async function to handle slight delay between generating each checklist item
 
+async function generateChecklist() {
+  formChecklist.innerHTML = ""; // Empty form
+
+  function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+  for (let index = 0; index < selectedVehicleChecklistItems.length; index++) {
+    const item = selectedVehicleChecklistItems[index];
+    const isEvenRow = index % 2 === 1;
+
+    // Use a unique ID for the checkbox container
+    const wrapperId = `form-check-${item.id}`;
+
+    formChecklist.innerHTML += `
+      <div id="${wrapperId}" class="form-check d-flex align-items-center gap-2 py-2 px-3 disable ${isEvenRow ? 'text-bg-danger' : 'text-bg-dark'}">
+        <input class="form-check-input larger-checkbox" type="checkbox" id="${item.id}" name="${item.id}">
+        <label class="form-check-label m-0" for="${item.id}">${item.label}</label>
+      </div>
+    `;
+
+    // Delay between each item
+    await sleep(250);
+
+  }
+
+  // enable clicking (remove .disable CSS class for pointer-events)
+  document.querySelectorAll(".form-check").forEach(el => {
+    el.classList.remove('disable');
+  });
+}
+
+// hide an even checklist item once marked as completed
+formChecklist.addEventListener("change", (event) => {
+  const checkbox = event.target;
+
+  // Only handle clicks on checkboxes
+  if (checkbox.matches('input[type="checkbox"].form-check-input')) {
+    const wrapper = checkbox.closest(".form-check");
+    if (wrapper && checkbox.checked) {
+      wrapper.classList.add("slide-out-left");
+      setTimeout(() => {
+        wrapper.classList.add("hidden");
+      }, 250);
+    }
+  }
+});
+
+/*
 function generateChecklist() {
     formChecklist.innerHTML = ""; // Empty form
   
@@ -147,6 +197,8 @@ function generateChecklist() {
       `;
     });
   }
+
+*/
 
 // Hide form until vehicle is selected
 const nameSection = document.getElementById("operator-name-section");
