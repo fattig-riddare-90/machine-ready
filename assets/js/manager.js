@@ -52,7 +52,7 @@ function renderHistoryForVehicle(vehicleName) {
       });
   
       const dateP = document.createElement("p");
-      dateP.textContent = `Datum: ${date} | Signatur: ${entry.signature} ✅`;
+      dateP.textContent = `Date: ${date} | Signature: ${entry.signature} ✅`;
       dateP.style.fontWeight = "bold";
   
       entryDiv.appendChild(dateP);

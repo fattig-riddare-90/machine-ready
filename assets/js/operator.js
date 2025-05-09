@@ -182,24 +182,6 @@ formChecklist.addEventListener("change", (event) => {
   }
 });
 
-/*
-function generateChecklist() {
-    formChecklist.innerHTML = ""; // Empty form
-  
-    selectedVehicleChecklistItems.forEach((item, index) => {
-      const isEvenRow = index % 2 === 1;
-  
-      formChecklist.innerHTML += `
-        <div class="form-check d-flex align-items-center gap-2 py-2 px-3" style="background-color: ${isEvenRow ? '#cc0000' : 'transparent'};">
-          <input class="form-check-input larger-checkbox" type="checkbox" id="${item.id}" name="${item.id}" required>
-          <label class="form-check-label m-0" for="${item.id}">${item.label}</label>
-        </div>
-      `;
-    });
-  }
-
-*/
-
 // Hide form until vehicle is selected
 const nameSection = document.getElementById("operator-name-section");
 
