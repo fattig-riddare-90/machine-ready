@@ -1,3 +1,5 @@
+/* jshint esversion: 11 */
+
 import { backToRoleButton } from "./utility.js";
 
 // Event listener to change to operator view

@@ -1,3 +1,5 @@
+/* jshint esversion: 11 */
+
 // List of vehicles
 
 export const vehicles = [

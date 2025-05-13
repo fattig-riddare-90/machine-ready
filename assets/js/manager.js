@@ -1,3 +1,5 @@
+/* jshint esversion: 11 */
+
 // Imported functions
 import { populateVehicleSelect } from "./utility.js";
 
