@@ -53,7 +53,7 @@ I've tested my deployed project on multiple browsers to check for compatibility 
 
 | Page | Brave | Edge | Firefox | Notes |
 | --- | --- | --- | --- | --- |
-| Start | ![screenshot](documentation/testing/images/browsers/start-brave.jpg | ![screenshot](documentation/testing/images/browsers/start-edge.jpg) | ![screenshot](documentation/testing/images/browsers/start-mozilla.jpg) | Works as expected |
+| Start | ![screenshot](documentation/testing/images/browsers/start-brave.jpg) | ![screenshot](documentation/testing/images/browsers/start-edge.jpg) | ![screenshot](documentation/testing/images/browsers/start-mozilla.jpg) | Works as expected |
 | Operator | ![screenshot](documentation/testing/images/browsers/operator-brave.jpg) | ![screenshot](documentation/testing/images/browsers/operator-edge.jpg) | ![screenshot](documentation/testing/images/browsers/operator-mozilla.jpg) | Works as expected |
 | Manager | ![screenshot](documentation/testing/images/browsers/manager-brave.jpg) | ![screenshot](documentation/testing/images/browsers/manager-edge.jpg) | ![screenshot](documentation/testing/images/browsers/manager-mozilla.jpg) | Works as expected 
 | 404 | ![screenshot](documentation/testing/images/browsers/404-brave.jpg) | ![screenshot](documentation/testing/images/browsers/404-edge.jpg) | ![screenshot](documentation/testing/images/browsers/404-mozilla.jpg) | Works as expected |
